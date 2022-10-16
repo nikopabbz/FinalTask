@@ -4,16 +4,20 @@
     int number = int.Parse(Console.ReadLine() ?? "0");
     return number;
 }
-int[] Array(int len)
+string[] Array(int len)
 {
-    int[] array = new int[len];
+    string content = "";
+    string[] array = new string[len];
+    System.Console.WriteLine("Введите значения (цифра или слово) для заполнения массива");
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = new Random().Next(100, 1000);
+        System.Console.Write($"{i+1}-й элемент массива: ");
+        content = Console.ReadLine();
+        array[i] = content;
     }
     return array;
 }
-void PrintArray(int[] array)
+void PrintArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -21,9 +25,8 @@ void PrintArray(int[] array)
     }
 }
 
-int content = 
+
 int size = Prompt("Введите размер массива -> ");
-int[] array = Array(size);
-SetOutput(array);
+string[] array = Array(size);
+PrintArray(array);
 System.Console.WriteLine();
-System.Console.WriteLine($"Количество четных чисел в массиве -> {Honest(array)}");
